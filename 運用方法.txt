@@ -1,0 +1,22 @@
+●フォルダ "silentStarter"
+node.jsのプログラムをコマンドプロンプト最小化状態で
+起動するためのbatファイルを格納する。
+ここに格納したbatファイルはnodejskickerのbatを
+発火するようにしておいて、
+マクロキーボードはこのフォルダのbatを動作させるようにしておく
+
+
+●フォルダ "nodejsKicker"
+以下のパスに保存してあるnode.jsプログラムを必要に応じて
+呼び出すbatファイルを格納して置く。
+C:\Users\ec000376\Desktop\programs\AS400macro
+
+
+●まとめ
+マクロキーボード
+↓
+silentStarterのbat
+↓
+nodejsKickerのbat
+↓
+AS400macroのjs
