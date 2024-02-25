@@ -6,4 +6,4 @@ if not "%~0"=="%~dp0.\%~nx0" (
      exit
 )
 
-"C:\Users\ec000376\Desktop\autoAS400\macroKey_ver\nodejsKicker\af0040Test.bat"
+"C:\Users\ec000376\Documents\macroKeys\nodejsKicker\af0040Test.bat"

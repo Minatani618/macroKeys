@@ -1,5 +1,5 @@
 {
-  "name": "as400macro",
+  "name": "macrokeys",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clipboard": "^2.0.11",
     "clipboardy": "^4.0.0",
     "robotjs": "^0.6.0"
   }
