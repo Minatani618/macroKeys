@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "clipboardy": "^4.0.0",
+    "csv-parse": "^5.5.5",
     "robotjs": "^0.6.0"
   }
 }

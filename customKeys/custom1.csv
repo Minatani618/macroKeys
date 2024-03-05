@@ -1,0 +1,4 @@
+actionType,sleepTime,copyStrings,typeKeys
+copy,,test,"	"
+sleep,3,,"		"
+tap,,,enter
