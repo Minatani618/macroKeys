@@ -1,6 +1,4 @@
 actionType,sleepTime,copyStrings,typeKeys
-tap,, ,delete
-tap,, ,delete
-tap,, ,delete
-copy,,qprtsrc,
+copy,,edtlibl,"	"
 tap,,,right_control
+tap,,,tab

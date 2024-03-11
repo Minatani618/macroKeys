@@ -1,0 +1,10 @@
+actionType,sleepTime,copyStrings,typeKeys
+tap,, ,f4
+tap, ,,down
+tap, ,,down
+tap, ,,down
+tap, ,,down
+tap, ,,right_control
+tap, ,,right_control
+sleep,0.5,, 
+tap,,,f12

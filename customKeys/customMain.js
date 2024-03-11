@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const robotjs = require("robotjs");
-const customKeyNumber = Number(process.argv[2]);
+const customKeyNumber = process.argv[2]; //コマンドライン引数は数字の1~9で入ってくる想定
 const csv = require("csv-parse/sync");
 const { exec, execSync } = require("child_process");
 
@@ -16,24 +16,9 @@ const sleep = (sec) => {
 
 //処理のメイン関数
 const main = async () => {
-  //対象のCSVファイル
-  const macroCSV1FileName = "custom1.csv";
-  const macroCSV2FileName = "custom2.csv";
-  const macroCSV3FileName = "custom3.csv";
-
-  //どのCSVファイルの情報を使用するかはコマンドライン引数で判断する
-  let targetCSVPath;
-  switch (customKeyNumber) {
-    case 1:
-      targetCSVPath = path.join(__dirname, macroCSV1FileName);
-      break;
-    case 2:
-      targetCSVPath = path.join(__dirname, macroCSV2FileName);
-      break;
-    case 3:
-      targetCSVPath = path.join(__dirname, macroCSV3FileName);
-      break;
-  }
+  //対象のCSVファイル コマンドライン引数により変化
+  const macroCSVFileName = `custom${customKeyNumber}.csv`;
+  const targetCSVPath = path.join(__dirname, macroCSVFileName);
 
   //csvファイルの中身を取得
   const csvContents = fs.readFileSync(targetCSVPath, "utf-8");
@@ -46,22 +31,24 @@ const main = async () => {
 
   //csvファイル行を順に処理して操作を実行
   for (csvObj of csvObjs) {
-    //actionTypeごとに操作を実行
-    switch (csvObj.actionType) {
-      //文字列の入力(クリップボードに文字列追加→ペーストで対応)
-      case "copy":
-        //クリップボード操作がnode.jsライブラリで実現できなかったためmjsを実行する形で実装
-        execSync(`node ${setClipPath} ${csvObj.copyStrings}`);
-        execSync(`node ${pastePath}`);
-        break;
-      //待機
-      case "sleep":
-        await sleep(csvObj.sleepTime);
-        break;
-      //キーの押下
-      case "tap":
-        robotjs.keyTap(csvObj.typeKeys);
-        break;
+    //待機
+    if (csvObj.sleepTime) {
+      await sleep(csvObj.sleepTime);
+      continue;
+    }
+
+    //文字列挿入
+    if (csvObj.copyStrings) {
+      //クリップボード操作がnode.jsライブラリで実現できなかったためmjsを実行する形で実装
+      execSync(`node ${setClipPath} ${csvObj.copyStrings}`);
+      execSync(`node ${pastePath}`);
+      continue;
+    }
+
+    //キー押下
+    if (csvObj.typeKeys) {
+      robotjs.keyTap(csvObj.typeKeys);
+      continue;
     }
   }
 };

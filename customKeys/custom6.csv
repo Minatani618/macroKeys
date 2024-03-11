@@ -1,0 +1,17 @@
+actionType,sleepTime,copyStrings,typeKeys
+copy,,edtlibl,"	"
+tap,,,right_control
+tap,,,tab
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+tap,,,down
+copy,,spoolwtr,
+tap,,,right_control
+tap,,,right_control
